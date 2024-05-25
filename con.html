@@ -1,0 +1,18 @@
+{% extends 'layout.html'}
+{% block content %}
+<link rel="stylesheet" href="WIN_20220328_20_04_08_Pro.jpg">
+<main class="container" id="content">
+    <section class="heading"><h1>Contact Us</h1></section>
+    <form method="post" action="contact.php" class="form-contact">
+        {% if errors.warning %}<div class="alert-danger">{{ errors.warning}}</div>{% endif %}
+        {% if success %}<div class="alert-success">{{success }}</div>{% endif}
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" value="{{form}}" class="form-control">
+        <span class="errors">{{errors.email }}</span><br>
+        <label for="message">Message: </label><br>
+        <textarea id="message" name="message" class="form-control">{{message }}</textarea>
+        <span class="errors">{{ errors.message }}</span><br>
+        <input type="submit" value="submit message" class="btn">
+    </form>
+</main>
+{% endblock %}
